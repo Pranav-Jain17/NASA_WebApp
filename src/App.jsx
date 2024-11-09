@@ -1,4 +1,3 @@
-// App.jsx
 import { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { AppProvider, AppContext } from "./AppContext";
@@ -40,7 +39,7 @@ function Gallery() {
         <button type="submit" className="search-button">Search</button>
       </form>
       <div className="card-container">
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <Link to={`/image/${index}`} key={index} className="card">
             <div className="card-inner">
               <div className="card-front">
@@ -56,7 +55,7 @@ function Gallery() {
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
         <span>Page {currentPage}</span>
-        <button onClick={nextPage} disabled={currentPage === Math.ceil(totalImages / 10)}>Next</button>
+        <button onClick={nextPage} disabled={currentPage === Math.ceil(totalImages / 12)}>Next</button>
       </div>
     </>
   );

@@ -1,4 +1,3 @@
-// AppContext.js
 import React, { createContext, useState, useEffect } from 'react';
 
 export const AppContext = createContext();
@@ -9,7 +8,7 @@ export const AppProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const [imagesPerPage] = useState(10);
+    const [imagesPerPage] = useState(12);
     const [totalImages, setTotalImages] = useState(0);
 
     useEffect(() => {
