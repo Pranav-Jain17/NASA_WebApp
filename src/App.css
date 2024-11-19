@@ -5,17 +5,30 @@ body {
 }
 
 .navbar {
-    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(177, 177, 177);
     font-size: 2rem;
-    margin-bottom: 1rem;
-    padding: 10px;
+    padding: 10px 30px;
     text-align: center;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    z-index: 9999;
+}
+
+.title {
+    padding: 0%;
+    font-size: 3rem;
+    color: black;
+    margin: 0%;
+    text-decoration: none;
 }
 
 .search-form {
     display: flex;
-    margin: 1rem 2rem;
-    justify-content: flex-end;
 }
 
 .search-bar {
@@ -41,15 +54,19 @@ body {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 0.8rem;
     justify-content: center;
+    background-color: rgb(250, 242, 242);
+    padding: 2rem 5rem;
+    margin-top: 70px;
 }
 
 .card {
     background-color: transparent;
     width: 300px;
     height: 200px;
-    border: 1px solid #f1f1f1;
+    border: 2px solid black;
+    border-radius: 5%;
 }
 
 .card-inner {
@@ -59,6 +76,7 @@ body {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    border-radius: 3%;
 }
 
 .card:hover .card-inner {
@@ -71,30 +89,100 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    border-radius: 3%;
 }
 
 .card-front img {
     height: 100%;
     width: 100%;
+    border-radius: 3%;
 }
 
 .card-back {
-    background-color: #555;
+    background-color: black;
     color: white;
     transform: rotateY(180deg);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.card-back p {
+    padding: 1rem;
+    text-align: justify;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #6c6b6b;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #575757;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(237, 146, 146);
 }
 
 .pagination {
     display: flex;
-    margin: 1rem 0;
-    background-color: rgb(155, 152, 152);
-    padding: 0.2rem;
-    width: fit-content;
+    background-color: rgb(250, 242, 242);
     gap: 10px;
-    margin: 2rem auto;
+    padding: 1rem 0 2rem;
+    justify-content: center;
+}
+
+.prev_btn,
+.next_btn {
+    border: 1px solid black;
 }
 
 .loading,
 .error {
+    font-size: 30px;
     text-align: center;
+}
+
+/* CSS for Image Detail Page */
+
+.image-detail {
+    padding: 5rem;
+}
+
+.navDetailPage {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(177, 177, 177);
+    padding: 10px 30px;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    z-index: 9999;
+}
+
+.navDetailPage p {
+    font-size: 2rem;
+}
+
+.imageDetailContent {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    text-align: justify;
+}
+
+.image-detail h1 {
+    font-family: cursive;
+}
+
+#downloadBtn {
+    font-size: 20px;
 }

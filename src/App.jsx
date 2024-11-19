@@ -8,9 +8,6 @@ function App() {
   return (
     <AppProvider>
       <Router>
-        <nav className="navbar">
-          <Link to="/">NASA WEBAPP</Link>
-        </nav>
         <Routes>
           <Route path="/" element={<Gallery />} />
           <Route path="/image/:id" element={<ImageDetail />} />
@@ -28,16 +25,23 @@ function Gallery() {
 
   return (
     <>
-      <form onSubmit={handleSearchSubmit} className="search-form">
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          placeholder="Search images..."
-          className="search-bar"
-        />
-        <button type="submit" className="search-button">Search</button>
-      </form>
+
+      <nav className="navbar">
+        <img src="./src/assets/NASA_logo.png" width="60px" height="60px"></img>
+        <p className="title">NASA WEBAPP</p>
+
+        <form onSubmit={handleSearchSubmit} className="search-form">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            placeholder="Search images..."
+            className="search-bar"
+          />
+          <button type="submit" className="search-button">Search</button>
+        </form>
+      </nav>
+
       <div className="card-container">
         {data?.map((item, index) => (
           <Link to={`/image/${index}`} key={index} className="card">
@@ -46,16 +50,16 @@ function Gallery() {
                 <img src={item.links[0].href} alt={item.data[0].description || "NASA Image"} />
               </div>
               <div className="card-back">
-                <p>{item.data[0].date_created}</p>
+                <p>{item.data[0].description}</p>
               </div>
             </div>
           </Link>
         ))}
       </div>
       <div className="pagination">
-        <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+        <button className="prev_btn" onClick={prevPage} disabled={currentPage === 1}>Previous</button>
         <span>Page {currentPage}</span>
-        <button onClick={nextPage} disabled={currentPage === Math.ceil(totalImages / 12)}>Next</button>
+        <button className="next_btn" onClick={nextPage} disabled={currentPage === Math.ceil(totalImages / 12)}>Next</button>
       </div>
     </>
   );

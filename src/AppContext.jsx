@@ -8,7 +8,7 @@ export const AppProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const [imagesPerPage] = useState(12);
+    const [imagesPerPage] = useState(20);
     const [totalImages, setTotalImages] = useState(0);
 
     useEffect(() => {
